@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import logoHero from '../Logo/Logo_branca.png';
+import textureImg from '../Imagens/Texture.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
@@ -163,7 +164,7 @@ const Hero = () => {
         <img
           src={logoHero}
           alt="Leandro Alonso"
-          className="w-52 md:w-80 h-auto object-contain transition-all duration-500"
+          className="w-64 md:w-96 h-auto object-contain transition-all duration-500"
         />
       </div>
 
@@ -378,7 +379,7 @@ const Philosophy = () => {
       {/* Background Texture */}
       <div className="absolute inset-x-0 top-0 h-full opacity-20 z-0 pointer-events-none">
         <img 
-          src="/Imagens/Texture.png" 
+          src={textureImg} 
           alt="" 
           className="w-full h-full object-cover"
           onError={(e) => e.target.style.display = 'none'}
