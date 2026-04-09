@@ -163,7 +163,7 @@ const Hero = () => {
         <img
           src={logoHero}
           alt="Leandro Alonso"
-          className="w-28 md:w-40 h-auto object-contain"
+          className="w-40 md:w-56 h-auto object-contain"
         />
       </div>
 
@@ -379,7 +379,7 @@ const Philosophy = () => {
       <div className="absolute inset-x-0 top-0 h-full opacity-20 z-0 pointer-events-none">
         <img 
           src="https://images.unsplash.com/photo-1518005020250-68a0d0d75971?auto=format&fit=crop&q=80&w=2000" 
-          alt="Texture" 
+          alt="" 
           className="w-full h-full object-cover"
         />
       </div>
@@ -390,9 +390,9 @@ const Philosophy = () => {
           A maioria do mercado tenta <span className="text-ivory/90">vender imóveis</span>.
         </h2>
         <h2 className="text-5xl md:text-8xl font-drama text-champagne mt-8 reveal-text leading-[0.9]">
-          Nós ajudamos você a tomar a <span className="underline decoration-ivory/20 decoration-1 underline-offset-[1.5rem]">decisão certa.</span>
+          Nós ajudamos você a tomar a decisão certa.
         </h2>
-        <p className="mt-16 text-ivory/50 font-sans text-lg max-w-2xl mx-auto leading-loose reveal-text">
+        <p className="mt-16 text-ivory/50 font-sans text-lg max-w-3xl mx-auto leading-loose reveal-text md:whitespace-nowrap">
           A consultoria imobiliária não deve ser baseada em pressão, pressa ou achismos.
         </p>
         <p className="mt-6 text-ivory/40 font-sans text-base max-w-2xl mx-auto leading-loose reveal-text">
@@ -800,15 +800,17 @@ const App = () => {
           <p className="text-obsidian/60 text-base md:text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
             Agende uma conversa e descubra qual é a melhor estratégia para comprar, vender ou proteger seu patrimônio com mais segurança.
           </p>
-          <a 
-            href="https://wa.me/5513981811433" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn-magnetic bg-obsidian text-ivory px-12 md:px-16 py-5 md:py-6 rounded-2xl font-bold tracking-[0.2em] uppercase text-xs mx-auto shadow-2xl inline-block"
-          >
-            AGENDAR CONSULTORIA
-          </a>
-          <p className="mt-8 text-obsidian/40 text-sm">
+          <div className="flex justify-center">
+            <a 
+              href="https://wa.me/5513981811433" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-magnetic bg-obsidian text-ivory px-12 py-4 rounded-2xl font-bold tracking-[0.2em] uppercase text-xs shadow-2xl !inline-flex !w-auto"
+            >
+              AGENDAR CONSULTORIA
+            </a>
+          </div>
+          <p className="mt-8 text-obsidian text-base">
             Atendimento em Santos e região • WhatsApp: (13) 98181-1433
           </p>
         </section>
