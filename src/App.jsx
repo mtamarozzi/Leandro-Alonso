@@ -163,7 +163,7 @@ const Hero = () => {
         <img
           src={logoHero}
           alt="Leandro Alonso"
-          className="w-40 md:w-56 h-auto object-contain"
+          className="w-52 md:w-80 h-auto object-contain transition-all duration-500"
         />
       </div>
 
@@ -378,9 +378,10 @@ const Philosophy = () => {
       {/* Background Texture */}
       <div className="absolute inset-x-0 top-0 h-full opacity-20 z-0 pointer-events-none">
         <img 
-          src="https://images.unsplash.com/photo-1518005020250-68a0d0d75971?auto=format&fit=crop&q=80&w=2000" 
+          src="/Imagens/Texture.png" 
           alt="" 
           className="w-full h-full object-cover"
+          onError={(e) => e.target.style.display = 'none'}
         />
       </div>
 
