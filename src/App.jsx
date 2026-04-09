@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import logoHero from '../Logo/Logo_branca.png';
-import textureImg from '../Imagens/Texture.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
@@ -376,15 +375,7 @@ const Philosophy = () => {
 
   return (
     <section id="filosofia" ref={container} className="relative py-24 md:py-48 px-6 md:px-24 bg-obsidian overflow-hidden">
-      {/* Background Texture */}
-      <div className="absolute inset-x-0 top-0 h-full opacity-20 z-0 pointer-events-none">
-        <img 
-          src={textureImg} 
-          alt="" 
-          className="w-full h-full object-cover"
-          onError={(e) => e.target.style.display = 'none'}
-        />
-      </div>
+
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <span className="font-data text-champagne block mb-8 reveal-text">O MANIFESTO</span>
