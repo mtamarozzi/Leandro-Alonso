@@ -1,4 +1,4 @@
-# Copy – Landing Page | Leandro Alonso • Chave Urbana
+# Copy – Landing Page | Leandro Alonso
 
 ## 1. HERO / PRIMEIRA DOBRA
 
@@ -6,7 +6,7 @@
 Decisões imobiliárias mais inteligentes começam com dados.
 
 ### Subtítulo
-Leandro Alonso atua ao lado da Chave Urbana para transformar compra, venda e gestão de imóveis em estratégias seguras, rentáveis e orientadas pelo mercado.
+Leandro Alonso atua para transformar compra, venda e gestão de imóveis em estratégias seguras, rentáveis e orientadas pelo mercado.
 
 ### Texto de apoio
 Em vez de apostar em anúncios ou promessas, você recebe uma consultoria baseada em liquidez, valorização, documentação e análise real de mercado em Santos e região.
@@ -150,7 +150,7 @@ Pessoas que valorizam atendimento próximo, clareza e estratégia.
 Conheça Leandro Alonso
 
 ### Texto
-Leandro Alonso é consultor imobiliário em Santos – SP, atuando ao lado da Chave Urbana com foco em estratégia, dados e segurança patrimonial.
+Leandro Alonso é consultor imobiliário em Santos – SP, atuando com foco em estratégia, dados e segurança patrimonial.
 
 Seu trabalho une análise de mercado, clareza nas negociações e atenção jurídica para ajudar clientes a comprar, vender e administrar imóveis com mais inteligência.
 

@@ -179,7 +179,7 @@ const Hero = () => {
 
         {/* Subtitle */}
         <p className="text-ivory/70 text-base md:text-lg max-w-2xl mb-6 leading-relaxed">
-          Leandro Alonso atua ao lado da Chave Urbana para transformar compra, venda e gestão de imóveis em estratégias seguras, rentáveis e orientadas pelo mercado.
+          Leandro Alonso atua para transformar compra, venda e gestão de imóveis em estratégias seguras, rentáveis e orientadas pelo mercado.
         </p>
 
         {/* Support text */}
@@ -534,7 +534,7 @@ const Footer = () => {
             <span className="font-data !lowercase">consultoria ativa</span>
           </div>
           <div className="text-ivory/20 font-data text-[0.55rem]">
-            © 2025 LEANDRO ALONSO • CHAVE URBANA. TODOS OS DIREITOS RESERVADOS.
+            © 2025 LEANDRO ALONSO. TODOS OS DIREITOS RESERVADOS.
           </div>
         </div>
       </div>
@@ -648,7 +648,7 @@ const AboutConsultant = () => {
             </h2>
 
             <p className="text-ivory/60 text-base md:text-lg leading-relaxed">
-              Leandro Alonso é consultor imobiliário em Santos – SP, atuando ao lado da Chave Urbana com foco em estratégia, dados e segurança patrimonial.
+              Leandro Alonso é consultor imobiliário em Santos – SP, atuando com foco em estratégia, dados e segurança patrimonial.
             </p>
             <p className="text-ivory/50 text-base leading-relaxed">
               Seu trabalho une análise de mercado, clareza nas negociações e atenção jurídica para ajudar clientes a comprar, vender e administrar imóveis com mais inteligência.
