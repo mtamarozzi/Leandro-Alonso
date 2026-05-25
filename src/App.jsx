@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import logoHero from '../Logo/Logo_branca.png';
-import ChatWidget from './components/ChatWidget';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
@@ -813,8 +812,6 @@ const App = () => {
       <Footer />
 
       <CustomCursor />
-
-      <ChatWidget />
     </div>
   );
 };
