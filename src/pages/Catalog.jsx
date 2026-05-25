@@ -5,9 +5,14 @@ import { ArrowLeft, BedDouble, Bath, Car, Maximize, MapPin } from 'lucide-react'
 import logo from '../../Logo/Logo_branca.png';
 import { supabase } from '../lib/supabase';
 
-function formatBRL(v) {
+function formatBRL(v, { cents = false } = {}) {
   if (v == null) return null;
-  return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  return v.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: cents ? 2 : 0,
+    maximumFractionDigits: cents ? 2 : 0,
+  });
 }
 
 function priceLabel(p) {
@@ -24,7 +29,7 @@ function coverUrl(media) {
 }
 
 const SELECT =
-  'id,ref_code,purpose,status,city,neighborhood,bedrooms,suites,bathrooms,parking_spots,usable_area_m2,sale_price,rent_price,is_featured,media(url,is_cover,display_order)';
+  'id,ref_code,purpose,status,city,neighborhood,bedrooms,suites,bathrooms,parking_spots,usable_area_m2,sale_price,rent_price,condo_fee,iptu,is_featured,media(url,is_cover,display_order)';
 
 export default function Catalog() {
   const [properties, setProperties] = useState(null);
@@ -153,6 +158,14 @@ export default function Catalog() {
                     </div>
 
                     <p className="font-drama mt-2 text-2xl text-ivory">{priceLabel(p)}</p>
+
+                    {(p.condo_fee != null || p.iptu != null) && (
+                      <p className="mt-1 text-xs text-ivory/50">
+                        {p.condo_fee != null && `Condomínio ${formatBRL(p.condo_fee, { cents: true })}`}
+                        {p.condo_fee != null && p.iptu != null && ' · '}
+                        {p.iptu != null && `IPTU ${formatBRL(p.iptu, { cents: true })}`}
+                      </p>
+                    )}
 
                     <div className="mt-4 flex flex-wrap gap-4 border-t border-ivory/10 pt-4 text-ivory/70">
                       {p.bedrooms > 0 && (
