@@ -220,9 +220,10 @@ export default function ChatWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onKeyDown}
+                disabled={busy}
                 rows={1}
-                placeholder="Escreva sua mensagem…"
-                className="max-h-24 flex-1 resize-none bg-transparent text-sm text-ivory placeholder:text-ivory/40 focus:outline-none"
+                placeholder={busy ? 'Aguardando resposta…' : 'Escreva sua mensagem…'}
+                className="max-h-24 flex-1 resize-none bg-transparent text-sm text-ivory placeholder:text-ivory/40 focus:outline-none disabled:opacity-50"
               />
               <button
                 onClick={send}
