@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "19.0.0-rc.0",
-    "react-dom": "19.0.0-rc.0",
+    "@supabase/supabase-js": "^2.106.2",
+    "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "lucide-react": "^0.446.0",
-    "clsx": "^2.1.1",
+    "react": "19.0.0-rc.0",
+    "react-dom": "19.0.0-rc.0",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
