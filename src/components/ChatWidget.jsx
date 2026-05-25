@@ -3,13 +3,6 @@ import { gsap } from 'gsap';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { supabase, WORKSPACE_ID } from '../lib/supabase';
 
-const GREETING = {
-  key: 'greeting',
-  role: 'ai',
-  name: 'Dorinda',
-  content: 'Oi! Sou a Dorinda, atendo aqui no site do Leandro. Tá procurando imóvel pra comprar, alugar ou só dando uma olhada? Me conta que eu te ajudo. 😊',
-};
-
 function getVisitorId() {
   let id = localStorage.getItem('dorinda_visitor_id');
   if (!id) {
@@ -21,7 +14,7 @@ function getVisitorId() {
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([GREETING]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false); // enviando ou aguardando resposta
   const [error, setError] = useState(null);
@@ -61,15 +54,14 @@ export default function ChatWidget() {
         .eq('conversation_id', conversationIdRef.current)
         .order('id', { ascending: true });
       if (!err && data && data.length) {
-        setMessages([
-          GREETING,
-          ...data.map((r) => ({
+        setMessages(
+          data.map((r) => ({
             key: 'db-' + r.id,
             role: r.sender_type === 'visitor' ? 'visitor' : 'ai',
             name: r.sender_name,
             content: r.content,
-          })),
-        ]);
+          }))
+        );
         lastSeenIdRef.current = data[data.length - 1].id;
       }
     })();
