@@ -120,9 +120,10 @@ export default function Catalog() {
             {properties.map((p) => {
               const cover = coverUrl(p.media);
               return (
-                <article
+                <Link
                   key={p.id}
-                  className="cat-card group overflow-hidden rounded-3xl border border-ivory/10 bg-slate/30 transition hover:border-champagne/40"
+                  to={`/imoveis/${p.ref_code ? p.ref_code.toLowerCase() : p.id}`}
+                  className="cat-card group block overflow-hidden rounded-3xl border border-ivory/10 bg-slate/30 transition hover:border-champagne/40"
                 >
                   {/* foto */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-slate">
@@ -194,7 +195,7 @@ export default function Catalog() {
                       <p className="font-data mt-4 text-ivory/30">Ref. {p.ref_code}</p>
                     )}
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>

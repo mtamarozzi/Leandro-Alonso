@@ -32,6 +32,17 @@ export default function ChatWidget() {
     return () => clearInterval(pollRef.current);
   }, []);
 
+  // abre o widget com contexto via evento global (botão "Falar com a Dorinda" na página do imóvel)
+  useEffect(() => {
+    function onOpen(e) {
+      setOpen(true);
+      const msg = e.detail && e.detail.message;
+      if (msg) setInput(msg);
+    }
+    window.addEventListener('dorinda:open', onOpen);
+    return () => window.removeEventListener('dorinda:open', onOpen);
+  }, []);
+
   // entrada cinematográfica do painel
   useEffect(() => {
     if (open && panelRef.current) {
