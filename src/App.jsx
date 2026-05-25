@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import logoHero from '../Logo/Logo_branca.png';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -53,6 +54,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
+          <Link to="/imoveis" className="font-data hover:text-champagne transition-colors">
+            Imóveis
+          </Link>
           {[{label: 'Diferenciais', href: '#expertise'}, {label: 'Como Funciona', href: '#protocolo'}, {label: 'Manifesto', href: '#filosofia'}, {label: 'Contato', href: '#contato'}].map((link) => (
           <a
             key={link.label}
@@ -104,6 +108,13 @@ const Navbar = () => {
           </div>
 
           <nav className="flex flex-col gap-6 flex-1">
+            <Link
+              to="/imoveis"
+              onClick={() => setMenuOpen(false)}
+              className="text-2xl font-bold text-ivory hover:text-champagne transition-colors border-b border-ivory/5 pb-6"
+            >
+              Imóveis
+            </Link>
           {[{label: 'Diferenciais', href: '#expertise'}, {label: 'Como Funciona', href: '#protocolo'}, {label: 'Manifesto', href: '#filosofia'}, {label: 'Contato', href: '#contato'}].map((link) => (
               <a
                 key={link.label}
