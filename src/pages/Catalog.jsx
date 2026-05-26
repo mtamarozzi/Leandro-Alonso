@@ -67,13 +67,21 @@ export default function Catalog() {
   useEffect(() => {
     if (properties && properties.length && gridRef.current) {
       const ctx = gsap.context(() => {
-        gsap.from('.cat-card', {
-          opacity: 0,
-          y: 32,
-          duration: 0.7,
-          ease: 'power3.out',
-          stagger: 0.08,
-        });
+        // fromTo (não from): destino explícito opacity:1/y:0 evita o bug do
+        // StrictMode, em que a 2ª invocação do effect capturava a opacidade
+        // intermediária como alvo e deixava os cards travados/ofuscados.
+        gsap.fromTo(
+          '.cat-card',
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power3.out',
+            stagger: 0.08,
+            clearProps: 'opacity,transform',
+          }
+        );
       }, gridRef);
       return () => ctx.revert();
     }
@@ -109,7 +117,30 @@ export default function Catalog() {
 
       {/* grid */}
       <main ref={gridRef} className="mx-auto max-w-6xl px-6 pb-24 pt-8">
-        {properties === null && <p className="font-data text-ivory/40">Carregando imóveis…</p>}
+        {properties === null && (
+          <div
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            aria-hidden="true"
+          >
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="overflow-hidden rounded-3xl border border-ivory/10 bg-slate/30"
+              >
+                <div className="aspect-[4/3] animate-pulse bg-ivory/5" />
+                <div className="space-y-3 p-5">
+                  <div className="h-3 w-1/2 animate-pulse rounded bg-ivory/10" />
+                  <div className="h-6 w-2/3 animate-pulse rounded bg-ivory/10" />
+                  <div className="mt-4 flex gap-4 border-t border-ivory/10 pt-4">
+                    <div className="h-3 w-10 animate-pulse rounded bg-ivory/10" />
+                    <div className="h-3 w-10 animate-pulse rounded bg-ivory/10" />
+                    <div className="h-3 w-10 animate-pulse rounded bg-ivory/10" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {properties && properties.length === 0 && (
           <p className="text-ivory/50">{error || 'Nenhum imóvel disponível no momento.'}</p>

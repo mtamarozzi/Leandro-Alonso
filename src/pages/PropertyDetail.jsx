@@ -63,7 +63,13 @@ export default function PropertyDetail() {
   useEffect(() => {
     if (property && rootRef.current) {
       const ctx = gsap.context(() => {
-        gsap.from('.pd-anim', { opacity: 0, y: 24, duration: 0.6, ease: 'power3.out', stagger: 0.08 });
+        // fromTo (não from): destino explícito evita o bug do StrictMode que
+        // deixava elementos travados em opacidade intermediária.
+        gsap.fromTo(
+          '.pd-anim',
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08, clearProps: 'opacity,transform' }
+        );
       }, rootRef);
       return () => ctx.revert();
     }
