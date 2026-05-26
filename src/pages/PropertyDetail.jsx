@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ArrowLeft, BedDouble, Bath, Car, Maximize, MapPin, Building2, MessageCircle } from 'lucide-react';
+import { ArrowLeft, BedDouble, Bath, Car, Maximize, MapPin, Building2, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import logo from '../../Logo/Logo_branca.png';
 import { supabase } from '../lib/supabase';
 
@@ -75,6 +75,13 @@ export default function PropertyDetail() {
     }
   }, [property]);
 
+  function prevPhoto() {
+    setActiveIdx((i) => (i - 1 + media.length) % media.length);
+  }
+  function nextPhoto() {
+    setActiveIdx((i) => (i + 1) % media.length);
+  }
+
   function talkToDorinda() {
     const ref = property.ref_code ? `${property.ref_code} ` : '';
     const msg = `Oi! Tenho interesse no imóvel ${ref}(${property.neighborhood}, ${property.city}). Pode me passar mais detalhes?`;
@@ -116,7 +123,7 @@ export default function PropertyDetail() {
         <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
           {/* galeria */}
           <div className="pd-anim">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-ivory/10 bg-slate">
+            <div className="group relative aspect-[16/10] overflow-hidden rounded-3xl border border-ivory/10 bg-slate">
               {media.length ? (
                 <img
                   src={media[activeIdx]?.url}
@@ -128,6 +135,32 @@ export default function PropertyDetail() {
                   <span className="font-data text-ivory/30">Fotos em breve</span>
                 </div>
               )}
+
+              {/* setas de navegação — sempre visíveis no mobile, no hover no desktop */}
+              {media.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={prevPhoto}
+                    aria-label="Foto anterior"
+                    className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-obsidian/50 text-ivory opacity-100 ring-1 ring-ivory/15 backdrop-blur transition hover:bg-obsidian/70 hover:text-champagne focus-visible:opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={nextPhoto}
+                    aria-label="Próxima foto"
+                    className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-obsidian/50 text-ivory opacity-100 ring-1 ring-ivory/15 backdrop-blur transition hover:bg-obsidian/70 hover:text-champagne focus-visible:opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                  <span className="font-data absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-obsidian/60 px-3 py-1 text-xs text-ivory/80 backdrop-blur">
+                    {activeIdx + 1} / {media.length}
+                  </span>
+                </>
+              )}
+
               <span className="font-data absolute right-4 top-4 rounded-full bg-champagne/90 px-3 py-1 text-obsidian">
                 {purposeLabel}
               </span>
@@ -167,7 +200,7 @@ export default function PropertyDetail() {
                   {property.floor ? ` · ${property.floor}` : ''}
                 </span>
               </div>
-              <h1 className="font-drama pd-anim mt-2 text-4xl text-ivory">
+              <h1 className="font-drama pd-anim mt-2 text-3xl text-ivory sm:text-4xl">
                 {property.development_name || `${purposeLabel} em ${property.neighborhood}`}
               </h1>
 

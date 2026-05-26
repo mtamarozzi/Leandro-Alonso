@@ -178,7 +178,7 @@ export default function ChatWidget() {
       {open && (
         <div
           ref={panelRef}
-          className="pill-container mb-4 flex h-[520px] w-[min(380px,calc(100vw-3rem))] flex-col overflow-hidden rounded-3xl shadow-2xl"
+          className="pill-container mb-4 flex h-[min(520px,calc(100dvh-7rem))] w-[min(380px,calc(100vw-3rem))] flex-col overflow-hidden rounded-3xl shadow-2xl"
           style={{ backgroundColor: 'rgba(13,13,18,0.72)' }}
         >
           {/* header */}
